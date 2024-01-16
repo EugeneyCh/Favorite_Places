@@ -56,7 +56,7 @@ function ImagePicker() {
   return (
     <View>
       <View style={styles.imagePreview}>{imagePreview}</View>
-      <OutlineButton icon={"camera"} onPress={takeImageHandler}>
+      <OutlineButton icon="camera" onPress={takeImageHandler}>
         Take Image
       </OutlineButton>
     </View>
