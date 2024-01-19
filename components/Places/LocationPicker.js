@@ -1,23 +1,26 @@
+import { useState } from "react";
 import { Alert, Image, StyleSheet, Text, View } from "react-native";
 import {
   getCurrentPositionAsync,
   useForegroundPermissions,
   PermissionStatus,
 } from "expo-location";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-import { useState } from "react";
 import { Colors } from "../../constans/colors";
 import OutlineButton from "../UI/OutlineButton";
-import { useNavigation } from "@react-navigation/native";
-
 import { getMapPreview } from "../../util/location";
 
 function LocationPicker() {
   const [pickedLocation, setPickedLocation] = useState();
 
   const navigation = useNavigation();
+  const route = useRoute();
+
   const [locationPermissionInformation, requestPermission] =
     useForegroundPermissions();
+
+  const mapPickedLocation = route.params;
 
   async function verifyPermissions() {
     if (
