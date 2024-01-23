@@ -9,10 +9,11 @@ function AllPlaces({ route }) {
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    if (isFocused && route.param) {
+    if (isFocused && route.params) {
       setLoadedPlaces((curPlaces) => [...curPlaces, route.params.place]);
     }
   }, [isFocused, route]);
+
   return <PlacesList places={loadedPlaces} />;
 }
 
