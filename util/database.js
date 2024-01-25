@@ -64,21 +64,48 @@ export function fetchPlaces() {
           // console.log(result.rows._array);
           const places = [];
 
-          for (const dp of result.rows._array) {
+          for (const db of result.rows._array) {
             places.push(
               new Place(
-                dp.title,
-                dp.imageUri,
+                db.title,
+                db.imageUri,
                 {
-                  address: dp.address,
-                  lat: dp.lat,
-                  lng: dp.lng,
+                  address: db.address,
+                  lat: db.lat,
+                  lng: db.lng,
                 },
-                dp.id
+                db.id
               )
             );
           }
           resolve(places);
+        },
+        (_, error) => {
+          reject(error);
+        }
+      );
+    });
+  });
+
+  return promise;
+}
+
+export function fetchedPlaceDetails(id) {
+  const promise = new Promise((resolve, reject) => {
+    database.transaction((tx) => {
+      tx.executeSql(
+        "SELECT * FROM places WHERE id=?",
+        [id],
+        (_, result) => {
+          const dbPlace = result.rows._array[0];
+          const place = new Place(
+            dbPlace.title,
+            dbPlace.imageUri,
+            { lat: dbPlace.lat, lng: dbPlace.lng, address: dbPlace.address },
+            dbPlace.id
+          );
+          console.log(place);
+          resolve(place);
         },
         (_, error) => {
           reject(error);

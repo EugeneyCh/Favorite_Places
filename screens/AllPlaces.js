@@ -26,6 +26,6 @@ function AllPlaces({ route }) {
 
 export default AllPlaces;
 
-const styles = StyleSheet.create({
-  container: {},
-});
+// const styles = StyleSheet.create({
+//   container: {},
+// });
