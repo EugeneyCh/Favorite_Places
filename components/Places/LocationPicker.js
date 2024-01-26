@@ -87,7 +87,6 @@ function LocationPicker({ onPickLocation }) {
   let locationPreview = <Text>No location picked yet.</Text>;
 
   if (pickedLocation) {
-    // console.log(getMapPreview(pickedLocation.lat, pickedLocation.lng));
     locationPreview = (
       <Image
         style={styles.image}
@@ -134,6 +133,5 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
-    // borderRadius: 4,
   },
 });

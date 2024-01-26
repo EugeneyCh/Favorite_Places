@@ -1,4 +1,3 @@
-import { StyleSheet } from "react-native";
 import PlacesList from "../components/Places/PlacesList";
 import { useEffect, useState } from "react";
 import { useIsFocused } from "@react-navigation/native";
@@ -17,7 +16,6 @@ function AllPlaces({ route }) {
 
     if (isFocused) {
       loadPlaces();
-      // setLoadedPlaces((curPlaces) => [...curPlaces, route.params.place]);
     }
   }, [isFocused]);
 
@@ -25,7 +23,3 @@ function AllPlaces({ route }) {
 }
 
 export default AllPlaces;
-
-// const styles = StyleSheet.create({
-//   container: {},
-// });

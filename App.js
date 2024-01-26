@@ -23,9 +23,7 @@ export default function App() {
       .then(() => {
         setDbInitialized(true);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   // if (!dbInitialized) {

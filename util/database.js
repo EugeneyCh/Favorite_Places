@@ -61,7 +61,6 @@ export function fetchPlaces() {
         "SELECT * FROM places",
         [],
         (_, result) => {
-          // console.log(result.rows._array);
           const places = [];
 
           for (const db of result.rows._array) {
@@ -104,7 +103,6 @@ export function fetchedPlaceDetails(id) {
             { lat: dbPlace.lat, lng: dbPlace.lng, address: dbPlace.address },
             dbPlace.id
           );
-          console.log(place);
           resolve(place);
         },
         (_, error) => {
